@@ -1,0 +1,15 @@
+.container {
+    text-align: center;
+    margin: 3rem auto;
+}
+
+.image {
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+    background-color: transparent;
+}
+
+.content {
+    font-size: 1.5rem;
+}
