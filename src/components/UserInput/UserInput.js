@@ -1,21 +1,7 @@
-import { useState } from "react";
 import classes from "./UserInput.module.css";
-const UserInput = () => {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
 
-  const inputChangeHandler = (inputIdentifier, newValue) => {
-    setUserInput(prevUserInput => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      }
-    })
-  }
+const UserInput = ({onChangeInput, userInput}) => {
+
 
   return (
     <section className={classes.container}>
@@ -27,7 +13,7 @@ const UserInput = () => {
             required
             value={userInput.initialInvestment}
             onChange={(event) =>
-            inputChangeHandler('initialInvestment', event.target.value)} />
+              onChangeInput('initialInvestment', event.target.value)}/>
         </p>
         <p>
           <label>Annual Investment</label>
@@ -35,7 +21,7 @@ const UserInput = () => {
                  required
                  value={userInput.annualInvestment}
                  onChange={(event) =>
-                   inputChangeHandler('annualInvestment', event.target.value)} />
+                   onChangeInput('annualInvestment', event.target.value)}/>
         </p>
       </div>
       <div className={classes.group}>
@@ -45,7 +31,7 @@ const UserInput = () => {
                  required
                  value={userInput.expectedReturn}
                  onChange={(event) =>
-                   inputChangeHandler('expectedReturn', event.target.value)} />
+                   onChangeInput('expectedReturn', event.target.value)}/>
         </p>
         <p>
           <label>Duration</label>
@@ -53,7 +39,7 @@ const UserInput = () => {
                  required
                  value={userInput.duration}
                  onChange={(event) =>
-                   inputChangeHandler('duration', event.target.value)} />
+                   onChangeInput('duration', event.target.value)}/>
         </p>
       </div>
     </section>
