@@ -1,4 +1,3 @@
-//import Header from "./components/Header/Header";
 import { Header } from './components/Header';
 import { UserInput } from "./components/UserInput";
 import { Results } from "./components/Results";
@@ -14,6 +13,8 @@ const App = () => {
     duration: 10,
   });
 
+  const inputIsValid = userInput.duration >=1;
+
   const inputChangeHandler = (inputIdentifier, newValue) => {
     setUserInput(prevUserInput => {
       return {
@@ -26,11 +27,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <UserInput
-        onChangeInput={inputChangeHandler}
-        userInput={userInput}
-      />
-      <Results input={userInput} />
+      <UserInput onChangeInput={inputChangeHandler} userInput={userInput} />
+      {!inputIsValid && (<p className={classes.center}>Please enter a duration greater than zero.</p>)}
+      {inputIsValid && <Results input={userInput} />}
     </>
   );
 };

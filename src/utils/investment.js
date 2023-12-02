@@ -17,7 +17,6 @@ export const calculateInvestmentResults = ({
       annualInvestment: annualInvestment,
     });
   }
-
   return annualData;
 }
 
